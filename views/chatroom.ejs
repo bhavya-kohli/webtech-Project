@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat App</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<script>
+    const chat_room_Id="<%= chat_room_id%>";
+    console.log("<%= chat_room_id%>");
+</script>
+<body>
+    <div class="app">
+        <div class="app_left">
+            <div class="app_videos">
+                <div id="video_grid">
+
+                </div>
+            </div>
+
+            <div class="app_controls">
+                <div class="app_controls_panel">
+                    <div class="app_controls_button app_mute_button" onclick="muteUnmute()">
+                        <i class="fas fa-microphone"></i>
+                        <span>Mute</span>
+                    </div>
+                    <div class="app_controls_button app_video_button" onclick="videoplaypause()">
+                        <i class="fas fa-video"></i>
+                        <span>Stop Video</span>
+                    </div>
+                </div>
+                
+                <div class="app_controls_panel">
+                    <div class="app_controls_button">
+                        <i class="fas fa-comment-alt"></i>
+                        <span>Chat</span>
+                    </div>
+                    <div class="app_controls_button">
+                        <span class="leave_meeting" id="close-window">Leave Meeting</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="app_right">
+            <div class="app_header">
+                <h4>Chat</h4>
+            </div>
+            <div class="app_chat_window">
+                <ul class="messages"></ul>
+            </div>
+            <div class="app_message_container">
+                <input type="text" id="chat_message" placeholder="Type your text here..">
+            </div>
+        </div>
+    </div>
+    <script src="scripting.js"></script>
+</body>
+</html>
